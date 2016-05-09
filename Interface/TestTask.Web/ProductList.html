@@ -1,0 +1,32 @@
+﻿<body ng-app="MyApp">
+    <div ng-controller="PostsCtrl">
+        <table ng-repeat="product in products" border="1">
+            <tr>
+                <td>{{product.ProductID}}</td>
+                <td>{{product.Name}}</td>
+                <td>{{product.Description}}</td>
+                <td>{{product.Price}}</td>
+                <td>{{product.Count}}</td>
+            </tr>
+
+        </table>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+<script>
+
+
+    var app = angular.module("MyApp", []);
+
+    app.controller("ProductsCtrl", function ($scope, $http) {
+        $http.get('http://localhost:21354/api/products/getall').
+          success(function (data, status, headers, config) {
+              $scope.products = data;
+          }).
+          error(function (data, status, headers, config) {
+              // log error
+              alert("erro");
+          });
+    });
+</script>

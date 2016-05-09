@@ -1,0 +1,26 @@
+﻿<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<center>
+    <div style="width:80%">
+
+        <a ng-href="#/products/new" class="btn btn-primary" style="float:left">Add new Product</a>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Count</th>
+            </tr>
+            <tr ng-repeat="product in products">
+                <td>{{product.ProductID}}</td>
+                <td>{{product.Name}}</td>
+                <td>{{product.Description}}</td>
+                <td>{{product.Price}}</td>
+                <td>{{product.Count}}</td>
+            </tr>
+
+        </table>
+
+    </div>
+</center>
